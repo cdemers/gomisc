@@ -18,7 +18,7 @@ func TestTruncateText(t *testing.T) {
 	for _, test := range tests {
 		actual := TruncateText(test.input, test.length)
 		if actual != test.expected {
-			t.Errorf("TruncateText(%q, %d, %q) = %q; expected %q", test.input, test.length, test.ellipsis, actual, test.expected)
+			t.Errorf("TruncateText(%q, %d) = %q; expected %q", test.input, test.length, actual, test.expected)
 		}
 	}
 }
