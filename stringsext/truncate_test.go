@@ -8,12 +8,14 @@ func TestTruncateText(t *testing.T) {
 		length   int
 		expected string
 	}{
-		{"aaaa aaaa", 3, ""},
+		{"aaaa aaaa", 3, "aaa"},
 		{"aaaa aaaa", 4, "aaaa"},
 		{"aaaa aaaa", 5, "aaaa"},
 		{"aaaa aaaa", 6, "aaaa"},
 		{"aaaa aaaa", 9, "aaaa aaaa"},
 		{"aaaa aaaa", 10, "aaaa aaaa"},
+		{"aaaa aaaa ", 10, "aaaa aaaa"},
+		{"aaaa aaaa aaaa", 10, "aaaa aaaa"},
 	}
 	for _, test := range tests {
 		actual := TruncateText(test.input, test.length)
