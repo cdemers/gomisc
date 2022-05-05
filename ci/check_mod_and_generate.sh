@@ -2,6 +2,7 @@
 # This script is used to ensure that the go.mod file is up to date.
 
 set -euo pipefail
+pushd .
 
 if [[ $(go version) != *"go1.18"* ]]; then
   exit 0
@@ -43,3 +44,5 @@ if ! diff -r . "${BASE_DIR}"; then
   echo "Update them with the 'go generate ./...' command."
   exit 1
 fi
+
+popd

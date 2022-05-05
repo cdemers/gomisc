@@ -3,6 +3,7 @@
 
 set -euo pipefail
 
+pushd .
 BASE_DIR="$PWD"
 TEMP_DIR=$(mktemp -d)
 function cleanup() {
@@ -25,3 +26,5 @@ if ! diff -r . "${BASE_DIR}"; then
   echo "Format them with the 'go fmt .' command."
   exit 1
 fi
+
+popd
